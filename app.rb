@@ -30,11 +30,15 @@ class Application < Sinatra::Base
   get '/twitter.json' do
     content_type :json
 
+    response['Access-Control-Allow-Origin'] = '*'
+
     Twitter.search(params[:q]).results.map(&:to_hash).to_json
   end
 
   get '/facebook.json' do
     content_type :json
+
+    response['Access-Control-Allow-Origin'] = '*'
 
     graph = Koala::Facebook::API.new
 
@@ -48,6 +52,8 @@ class Application < Sinatra::Base
   get '/foursquare.json' do
     content_type :json
 
+    response['Access-Control-Allow-Origin'] = '*'
+
     foursquare = Foursquare2::Client.new(:client_id => 'M5YZDFNSYT5J1ZOI5QCPZWNIPU4L15O5YNRX2CF2MNZEKTTU', :client_secret => '52ZRKKZKJ2EJM1BQECTJZLNDPOCFYEE55TYI0FA3ZFZXAP0J')
 
     foursquare.search_venues(params[:q]).to_json
@@ -55,6 +61,8 @@ class Application < Sinatra::Base
 
   get '/instagram.json' do
     content_type :json
+
+    response['Access-Control-Allow-Origin'] = '*'
 
     if params[:lat] && params[:lng]
       Instagram.media_search(params[:lat], params[:lng]).to_json
