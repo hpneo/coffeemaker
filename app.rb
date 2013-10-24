@@ -31,6 +31,7 @@ class Application < Sinatra::Base
     content_type :json
 
     response['Access-Control-Allow-Origin'] = '*'
+    response.headers["Access-Control-Allow-Origin"] = "*"
 
     Twitter.search(params[:q]).results.map(&:to_hash).to_json
   end
@@ -39,8 +40,9 @@ class Application < Sinatra::Base
     content_type :json
 
     response['Access-Control-Allow-Origin'] = '*'
+    response.headers["Access-Control-Allow-Origin"] = "*"
 
-    graph = Koala::Facebook::API.new
+    graph = Koala::Facebook::API.new('CAACXZBs5iH0YBAPZArQV54j9ABO7lBdLCcVIZCdqrcXre74j76ruNKH486QjRTq2VESLoi2VuAGZB9dSANP0x2CFitcifGZAG3rVhnAD9UGX7ZBT9s7f4nmtZB0xVhfXQtc3d6ZA2XinZA1SZBCnL4WzVrHOK6YeT20dTUEpUtebo6C4dfSpzZAenEd8Awm1VIurZALr2TPTGZCzb9wZDZD')
 
     if params[:q]
       graph.search(params[:q], :type => (params[:type] || 'page')).to_json
@@ -53,6 +55,7 @@ class Application < Sinatra::Base
     content_type :json
 
     response['Access-Control-Allow-Origin'] = '*'
+    response.headers["Access-Control-Allow-Origin"] = "*"
 
     foursquare = Foursquare2::Client.new(:client_id => 'M5YZDFNSYT5J1ZOI5QCPZWNIPU4L15O5YNRX2CF2MNZEKTTU', :client_secret => '52ZRKKZKJ2EJM1BQECTJZLNDPOCFYEE55TYI0FA3ZFZXAP0J')
 
@@ -63,6 +66,7 @@ class Application < Sinatra::Base
     content_type :json
 
     response['Access-Control-Allow-Origin'] = '*'
+    response.headers["Access-Control-Allow-Origin"] = "*"
 
     if params[:lat] && params[:lng]
       Instagram.media_search(params[:lat], params[:lng]).to_json

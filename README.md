@@ -12,7 +12,7 @@ http://coffeemaker.herokuapp.com/twitter.json?q=cappuccino
 
 Facebook
 --------
-Use the Graph API to search posts, people, pages, etc [Check the reference here](https://dev.twitter.com/docs/api/1.1/get/search/tweets):
+Use the Graph API to search posts, people, pages, etc [Check the reference here](http://developers.facebook.com/docs/graph-api/):
 ```
 http://coffeemaker.herokuapp.com/facebook.json?q=espresso
 ```
