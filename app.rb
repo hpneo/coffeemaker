@@ -42,7 +42,7 @@ class Application < Sinatra::Base
     response['Access-Control-Allow-Origin'] = '*'
     response.headers["Access-Control-Allow-Origin"] = "*"
 
-    graph = Koala::Facebook::API.new('167103460155206|f2-eVydA8rKRvUjrxNRJq92fwQU')
+    graph = Koala::Facebook::API.new('CAACXZBs5iH0YBAGJrbljVucRrFb3ZBBBuS2yPgRrAchBiwyvRuCFiaDJjGe8K4fXjEOOnBD7DUrNvJWF5ZC77bkTL6pmXPZAjYPHldnzW6nP4w2qOb8wYTSv8e0QjKxZBZCZAwDtpjcHh5YAU0nyvl4hGzep1QFKDm2RiZAyZA3oYZCrnYChg2ZBeAinnXv9ZA5rR7vvfQKsyFZCzxAZDZD')
 
     if params[:q]
       graph.search(params[:q], :type => (params[:type] || 'page')).to_json
