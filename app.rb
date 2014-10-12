@@ -76,4 +76,13 @@ class Application < Sinatra::Base
       Instagram.media_popular.to_json
     end
   end
+
+  post '/form' do
+    content_type :json
+
+    response['Access-Control-Allow-Origin'] = '*'
+    response.headers["Access-Control-Allow-Origin"] = "*"
+
+    params.to_json
+  end
 end
